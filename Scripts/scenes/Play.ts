@@ -7,9 +7,8 @@ module scenes
         private _rollButton: objects.Button;
         private _dice1: objects.Button;
         private _dice2: objects.Button;
+        private _newLevelButton: objects.Button;
 
-        private _outcome:String;
-        private _result:number;
         private _finalResult = 0;
         // PUBLIC PROPERTIES
 
@@ -100,15 +99,6 @@ module scenes
                     this.addChild(this._dice2);
                     break;
                 }
-                    
-                case 1:
-                {
-                    this._finalResult += 1;
-                    this.removeChild(this._dice2);
-                    this._dice2 = new objects.Button(config.Game.ASSETS.getResult("1"), 450, 200, true);
-                    this.addChild(this._dice2);
-                    break;
-                }
                 case 2:
                 {
                     this._finalResult += 2;
@@ -170,7 +160,8 @@ module scenes
             //instantiate a new Text object
             this._resultLabel = new objects.Label("Result: ", "25px", "Consolas", "#DC143C", 320, 50 , true);
             // buttons
-            this._rollButton = new objects.Button(config.Game.ASSETS.getResult("rollButton"), 320, 430, true);
+            this._rollButton = new objects.Button(config.Game.ASSETS.getResult("rollButton"), 320, 370, true);
+            this._newLevelButton = new objects.Button(config.Game.ASSETS.getResult("nextButton"), 320, 450, true);
             this._dice1 = new objects.Button(config.Game.ASSETS.getResult("blank"), 200, 200, true);
             this._dice2 = new objects.Button(config.Game.ASSETS.getResult("blank"), 450, 200, true);
             
@@ -189,10 +180,14 @@ module scenes
 
         
             this.addChild(this._rollButton);
+            this.addChild(this._newLevelButton);
             this.addChild(this._dice1);
             this.addChild(this._dice2);
 
             this._rollButton.on("click", ()=>{this.GetDiceResult()});
+            this._newLevelButton.on("click", ()=>{
+                config.Game.SCENE = scenes.State.NEWLEVEL;
+            });
         }
 
         

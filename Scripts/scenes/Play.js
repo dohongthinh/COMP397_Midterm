@@ -97,14 +97,6 @@ var scenes;
                         this.addChild(this._dice2);
                         break;
                     }
-                case 1:
-                    {
-                        this._finalResult += 1;
-                        this.removeChild(this._dice2);
-                        this._dice2 = new objects.Button(config.Game.ASSETS.getResult("1"), 450, 200, true);
-                        this.addChild(this._dice2);
-                        break;
-                    }
                 case 2:
                     {
                         this._finalResult += 2;
@@ -161,7 +153,8 @@ var scenes;
             //instantiate a new Text object
             this._resultLabel = new objects.Label("Result: ", "25px", "Consolas", "#DC143C", 320, 50, true);
             // buttons
-            this._rollButton = new objects.Button(config.Game.ASSETS.getResult("rollButton"), 320, 430, true);
+            this._rollButton = new objects.Button(config.Game.ASSETS.getResult("rollButton"), 320, 370, true);
+            this._newLevelButton = new objects.Button(config.Game.ASSETS.getResult("nextButton"), 320, 450, true);
             this._dice1 = new objects.Button(config.Game.ASSETS.getResult("blank"), 200, 200, true);
             this._dice2 = new objects.Button(config.Game.ASSETS.getResult("blank"), 450, 200, true);
             this.Main();
@@ -172,9 +165,13 @@ var scenes;
             var _this = this;
             this.addChild(this._resultLabel);
             this.addChild(this._rollButton);
+            this.addChild(this._newLevelButton);
             this.addChild(this._dice1);
             this.addChild(this._dice2);
             this._rollButton.on("click", function () { _this.GetDiceResult(); });
+            this._newLevelButton.on("click", function () {
+                config.Game.SCENE = scenes.State.NEWLEVEL;
+            });
         };
         return Play;
     }(objects.Scene));
