@@ -1,6 +1,6 @@
 body
 {
-    background-color: lightgray;
+    background-color: lightgray;  
 }
 
 #canvas
@@ -8,10 +8,12 @@ body
     background-color: white;
     border: 1px dotted black;
     border-radius: 10px;
+    background-image: url(../Assets/images/dicebackground.png);
 }
 
 #mainContent
 {
     width: 640px;
     margin: 0 auto;
+    
 }

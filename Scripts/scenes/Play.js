@@ -27,7 +27,7 @@ var scenes;
         // PRIVATE METHODS
         Play.prototype.DisplayResult = function () {
             this.removeChild(this._resultLabel);
-            this._resultLabel = new objects.Label("Result: " + this._finalResult, "25px", "Consolas", "#000000", 320, 50, true);
+            this._resultLabel = new objects.Label("Result: " + this._finalResult, "25px", "Consolas", "#DC143C", 320, 50, true);
             this.addChild(this._resultLabel);
         };
         Play.prototype.GetDiceResult = function () {
@@ -159,7 +159,7 @@ var scenes;
         //initialize and instatiate
         Play.prototype.Start = function () {
             //instantiate a new Text object
-            this._resultLabel = new objects.Label("Result: ", "25px", "Consolas", "#000000", 320, 50, true);
+            this._resultLabel = new objects.Label("Result: ", "25px", "Consolas", "#DC143C", 320, 50, true);
             // buttons
             this._rollButton = new objects.Button(config.Game.ASSETS.getResult("rollButton"), 320, 430, true);
             this._dice1 = new objects.Button(config.Game.ASSETS.getResult("blank"), 200, 200, true);
